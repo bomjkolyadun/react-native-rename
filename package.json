@@ -6,6 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "babel src --out-dir lib",
+    "prepare": "npm run build",
     "prepublish": "npm run build",
     "relink": "npm unlink && npm run prepublish && npm link",
     "format": "prettier --write '**/*.{js,jsx}'",
