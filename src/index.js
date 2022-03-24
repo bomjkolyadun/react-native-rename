@@ -39,6 +39,7 @@ function replaceContent(regex, replacement, paths) {
 const cleanBuilds = () => {
   const deleteDirectories = shell.rm('-rf', [
     path.join(__dirname, 'ios/build/*'),
+    path.join(__dirname, 'macos/build/*'),
     path.join(__dirname, 'android/.gradle/*'),
     path.join(__dirname, 'android/app/build/*'),
     path.join(__dirname, 'android/build/*'),
@@ -254,6 +255,11 @@ loadAppConfig()
               if (fs.existsSync(path.join(__dirname, 'ios', 'Podfile'))) {
                 console.log(
                   `${colors.yellow('Podfile has been modified, please run "pod install" inside ios directory.')}`
+                );
+              }
+              if (fs.existsSync(path.join(__dirname, 'macos', 'Podfile'))) {
+                console.log(
+                  `${colors.yellow('Podfile has been modified, please run "pod install" inside macos directory.')}`
                 );
               }
             })
